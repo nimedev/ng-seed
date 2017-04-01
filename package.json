@@ -1,0 +1,120 @@
+{
+  "name": "ng-seed",
+  "version": "1.0.0",
+  "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
+  "scripts": {
+    "build": "export NODE_ENV='production' && webpack --env.target production",
+    "install:dev": "export NODE_ENV='development' && yarn",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:ts",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:js": "eslint . --ext js",
+    "lint:ts": "tslint 'src/**/*.ts' -e 'src/typings/**/*'",
+    "postinstall": "npm run typings",
+    "start": "npm run watch",
+    "stats": "export NODE_ENV='production' && webpack --env.target production --profile --json > tmp/stats.json",
+    "typings": "cd src && typings install",
+    "watch": "export NODE_ENV='development' && webpack-dev-server --env.target development"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimedev/ng-seed.git"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "webpack",
+    "typings",
+    "postcss"
+  ],
+  "author": "Nicolás Mejía Correa <nicolasmejiaco@gmail.com> (https://twitter.com/nimedev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nimedev/ng-seed/issues"
+  },
+  "homepage": "https://github.com/nimedev/ng-seed#readme",
+  "engines": {
+    "npm": ">=3.10.10",
+    "node": ">=6.10 <7.0.0"
+  },
+  "dependencies": {
+    "@angular/common": "4.0.1",
+    "@angular/compiler": "4.0.1",
+    "@angular/core": "4.0.1",
+    "@angular/platform-browser": "4.0.1",
+    "@angular/platform-browser-dynamic": "4.0.1",
+    "core-js": "2.4.1",
+    "niduscss-base": "1.0.1",
+    "niduscss-elements-form": "1.3.0",
+    "niduscss-elements-link": "1.1.1",
+    "niduscss-elements-typography": "1.1.2",
+    "rxjs": "5.2.0",
+    "zone.js": "0.8.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.7.7",
+    "babel-core": "6.24.0",
+    "babel-eslint": "7.2.1",
+    "babel-preset-es2015": "6.24.0",
+    "babel-preset-stage-1": "6.22.0",
+    "eslint": "3.19.0",
+    "eslint-config-nimedev-base": "2.4.1",
+    "eslint-plugin-import": "2.2.0",
+    "ip": "1.1.5",
+    "opener": "1.4.3",
+    "postcss-calc": "5.3.1",
+    "postcss-color-function": "3.0.0",
+    "postcss-custom-media": "5.0.1",
+    "postcss-custom-properties": "5.0.2",
+    "postcss-import": "9.1.0",
+    "postcss-mixins": "5.4.1",
+    "postcss-nested": "1.0.0",
+    "pre-commit": "1.2.2",
+    "stylelint": "7.9.0",
+    "stylelint-config-niduscss": "1.0.0",
+    "ts-loader": "2.0.3",
+    "tslint": "4.5.1",
+    "tslint-config-nimedev": "1.0.0",
+    "tslint-loader": "3.4.3",
+    "typescript": "2.2.2",
+    "typings": "2.1.0",
+    "webpack": "2.3.2",
+    "webpack-dev-server": "2.4.2",
+    "webpack-kit-nimedev": "3.0.0",
+    "webpack-merge": "4.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-1"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "nimedev-base",
+    "env": {
+      "browser": true
+    },
+    "parser": "babel-eslint"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "postcss-mixins": {},
+      "postcss-custom-media": {},
+      "postcss-custom-properties": {},
+      "postcss-nested": {},
+      "postcss-calc": {},
+      "postcss-color-function": {},
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-niduscss"
+  }
+}

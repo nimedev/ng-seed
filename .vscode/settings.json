@@ -1,0 +1,22 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+// Files
+
+  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+	"files.associations": {
+		"*.css": "scss"
+	},
+
+
+// SCSS (Sass)
+
+	// Enables or disables all validations
+  "scss.validate": false,
+
+
+// TypeScript
+
+  // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
+  "typescript.tsdk": "./node_modules/typescript/lib"
+
+}

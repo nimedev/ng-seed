@@ -1,0 +1,89 @@
+/** Settings for all app */
+
+/* Custom properties
+   ========================================================================== */
+
+:root {
+  /* Colors palette */
+  --App-primary-df: #2196f3;
+  --App-primary-h1: #64b5f6;
+
+  --App-accent-df: #ffab40;
+  --App-accent-h1: #ffd180;
+
+  --App-warn-df: #f44336;
+
+  --App-success-df: #00d1ac;
+
+  --App-black: rgb(0, 0, 0);
+  --App-superdark: color(var(--App-black) l(10%));
+  --App-darkergrey: color(var(--App-black) l(15%));
+  --App-darkgrey: color(var(--App-black) l(25%));
+  --App-grey: color(var(--App-black) l(50%));
+  --App-lightgrey: color(var(--App-black) l(90%));
+  --App-lightergrey: color(var(--App-black) l(98%));
+  --App-white: rgb(255, 255, 255);
+
+  /* Base styles */
+  --App-background: var(--App-lightgrey);
+  --App-textcolor: var(--App-superdark);
+  --App-basefont: Lato, Helvetica, "Roboto Slab", "Droid Serif", "Segoe UI Bold", sans-serif;
+  --App-backdrop: rgba(33, 33, 33, 0.48);
+  --App-backdrop-white: rgba(224, 224, 224, 0.85);
+
+  /* Layout */
+  --App-pagemaxwidth: 60rem;
+  --App-gutterwidth: 1rem;
+  --App-xs-gutterwidth: 0.5rem;
+
+  /* z-layers */
+  --App-zl-goku: 9001;
+  --App-zl-shoryuken: 8000;
+  --App-zl-default: 1;
+  --App-zl-below: -1;
+  --App-zl-bottomless-pit: -9000;
+
+  /* Font sizes */
+  --App-fs-xxsmall: 0.625rem;
+  --App-fs-xsmall: 0.75rem;
+  --App-fs-small: 0.875rem;
+  --App-fs-normal: 1rem;
+  --App-fs-medium: 1.25rem;
+  --App-fs-big: 1.5rem;
+  --App-fs-huge: 2.125rem;
+  --App-fs-extreme: 2.8125rem;
+  --App-fs-xextreme: 3.5rem;
+
+  /* Form elements */
+  --Form-textcolor: var(--App-textcolor);
+  --Form-basefont: var(--App-basefont);
+  --Form-fs-xsmall: var(--App-fs-xsmall);
+  --Form-fs-small: var(--App-fs-small);
+  --Form-fs-normal: var(--App-fs-normal);
+  --Form-border-clr: var(--App-primary-df);
+  --Form-warn-clr: var(--App-warn-df);
+}
+
+/* Custom media queries (Mobile first)
+   ========================================================================== */
+
+/* Portrait mobiles */
+
+@custom-media --for-phone-only (max-width: 37.4375rem);
+
+/* Portrait tablets, landscape mobiles */
+
+@custom-media --for-tablet-portrait-up (min-width: 37.5rem);
+@custom-media --for-tablet-portrait-down (max-width: 56.1875rem);
+
+/* Landscape tablets */
+
+@custom-media --for-tablet-landscape-up (min-width: 56.25rem);
+
+/* Desktops */
+
+@custom-media --for-desktop-up (min-width: 75rem);
+
+/* Large desktops */
+
+@custom-media --for-big-desktop-up (min-width: 112.5rem);
