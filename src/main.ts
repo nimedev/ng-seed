@@ -7,12 +7,14 @@
 import { enableProdMode } from '@angular/core'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
-// Import assets to bundle with webpack
+// Global styles
+import './styles'
+
+// Assets to bundle with webpack
 import './favicon.ico'
 import './robots.txt'
 
-// Import base styles before all components
-import './styles'
+// App module
 import { AppModule } from './app/app.module'
 import appConfig from './app-config'
 

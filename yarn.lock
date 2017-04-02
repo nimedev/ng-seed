@@ -2227,6 +2227,13 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
+exports-loader@0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/exports-loader/-/exports-loader-0.6.4.tgz#d70fc6121975b35fc12830cf52754be2740fc886"
+  dependencies:
+    loader-utils "^1.0.2"
+    source-map "0.5.x"
+
 express@^4.13.3:
   version "4.15.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.15.2.tgz#af107fc148504457f2dca9a6f2571d7129b97b35"
@@ -5276,9 +5283,9 @@ stylelint-config-niduscss@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-niduscss/-/stylelint-config-niduscss-1.0.0.tgz#d683e722d5cc955d44cd628e36940653b87b4b7f"
 
-stylelint@7.10.0:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-7.10.0.tgz#7950e443001bfc3a2e838f5637b499ad0b621a5f"
+stylelint@7.10.1:
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-7.10.1.tgz#209a7ce5e781fc2a62489fbb31ec0201ec675db2"
   dependencies:
     autoprefixer "^6.0.0"
     balanced-match "^0.4.0"
@@ -5867,14 +5874,15 @@ webpack-dev-server@2.4.2:
     webpack-dev-middleware "^1.9.0"
     yargs "^6.0.0"
 
-webpack-kit-nimedev@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/webpack-kit-nimedev/-/webpack-kit-nimedev-4.0.1.tgz#4c12437adc0dae56f4e393b6f30ae87408f1951b"
+webpack-kit-nimedev@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/webpack-kit-nimedev/-/webpack-kit-nimedev-4.1.0.tgz#cbfaf96f205424b22f99eaf75e26b4fe555d02a7"
   dependencies:
     babel-loader "6.4.1"
     clean-webpack-plugin "0.1.16"
     css-loader "0.28.0"
     eslint-loader "1.7.1"
+    exports-loader "0.6.4"
     extract-text-webpack-plugin "2.1.0"
     file-loader "0.11.0"
     html-loader "0.4.5"

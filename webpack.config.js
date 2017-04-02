@@ -19,7 +19,9 @@ const PATHS = {
   dist: path.join(__dirname, 'dist'),
   images: path.join(__dirname, 'src/assets/images'),
   icons: path.join(__dirname, 'src/assets/icons'),
-  fonts: path.join(__dirname, 'src/assets/fonts')
+  fonts: path.join(__dirname, 'src/assets/fonts'),
+  styles: path.join(__dirname, 'src/styles/index.css'),
+  componentStyles: path.join(__dirname, 'src/app')
 }
 
 const common = merge([
@@ -91,7 +93,16 @@ const common = merge([
     }
   }),
   webpackKit.loadFonts({ include: PATHS.fonts }),
-  webpackKit.loadAssets({ include: PATHS.src })
+  webpackKit.loadAssets({ include: PATHS.src }),
+
+  // Load global css
+  webpackKit.extractCSS({ include: PATHS.styles }),
+
+  // Load css of components
+  webpackKit.loadCSS({
+    include: PATHS.componentStyles,
+    useExportsLoader: true
+  })
 ])
 
 module.exports = ({ target }) => {
@@ -110,8 +121,7 @@ module.exports = ({ target }) => {
       webpackKit.extractVendor(webpack, { chunks: ['app'] }),
       webpackKit.cleanPlugin(PATHS.dist),
       webpackKit.loadJS({ include: PATHS.src }),
-      webpackKit.minify(webpack),
-      webpackKit.extractCSS({ include: PATHS.src })
+      webpackKit.minify(webpack)
     ])
   }
 
@@ -127,7 +137,6 @@ module.exports = ({ target }) => {
       ]
     },
     webpackKit.generateSourcemaps('#inline-source-map'),
-    webpackKit.loadCSS({ include: PATHS.src }),
     webpackKit.devServer(webpack, { host, port }),
     webpackKit.loadJS({
       include: PATHS.src,
