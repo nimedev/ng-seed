@@ -26,7 +26,8 @@ const common = merge([
   // Common settings
   {
     entry: {
-      app: `${PATHS.src}/main.ts`
+      app: `${PATHS.src}/main.ts`,
+      polyfills: `${PATHS.src}/polyfills.ts`
     },
     output: {
       path: PATHS.dist,
@@ -106,7 +107,7 @@ module.exports = ({ target }) => {
           new webpack.HashedModuleIdsPlugin()
         ]
       },
-      webpackKit.extractVendor(webpack, { chunks: ['main'] }),
+      webpackKit.extractVendor(webpack, { chunks: ['app'] }),
       webpackKit.cleanPlugin(PATHS.dist),
       webpackKit.loadJS({ include: PATHS.src }),
       webpackKit.minify(webpack),
