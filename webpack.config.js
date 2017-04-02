@@ -51,8 +51,6 @@ const common = merge([
       // Angular AOT
       new AotPlugin({
         entryModule: `${PATHS.src}/app/app.module#AppModule`,
-        mainPath: 'main.ts',
-        skipCodeGeneration: true,
         tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
       })
     ],

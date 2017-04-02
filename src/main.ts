@@ -5,6 +5,7 @@
 /// <reference path="./typings/index.d.ts" />
 
 import { enableProdMode } from '@angular/core'
+import { platformBrowser } from '@angular/platform-browser'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
 // Global styles
@@ -21,6 +22,7 @@ import appConfig from './app-config'
 // Enable production mode
 if (appConfig.ENV === 'production') {
   enableProdMode()
+  platformBrowser().bootstrapModule(AppModule)
+} else {
+  platformBrowserDynamic().bootstrapModule(AppModule)
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule)
