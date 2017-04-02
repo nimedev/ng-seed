@@ -106,7 +106,7 @@ module.exports = ({ target }) => {
           new webpack.HashedModuleIdsPlugin()
         ]
       },
-      webpackKit.extractBundles(webpack),
+      webpackKit.extractVendor(webpack, { chunks: ['main'] }),
       webpackKit.cleanPlugin(PATHS.dist),
       webpackKit.loadJS({ include: PATHS.src }),
       webpackKit.minify(webpack),
