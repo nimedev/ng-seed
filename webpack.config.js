@@ -47,31 +47,10 @@ const common = merge([
         // The (\\|\/) piece accounts for path separators in *nix and Windows
         /angular(\\|\/)core(\\|\/)@angular/,
         PATHS.src
-      ),
-      // Angular AOT
-      new AotPlugin({
-        entryModule: `${PATHS.src}/app/app.module#AppModule`,
-        tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
-      })
+      )
     ],
     resolve: {
       extensions: ['.ts', '.js', '.json', '.css']
-    },
-
-    // TypeScript loaders.
-    module: {
-      rules: [{
-        test: /\.ts$/,
-        include: PATHS.src,
-        enforce: 'pre',
-
-        use: 'tslint-loader'
-      }, {
-        test: /\.ts$/,
-        include: PATHS.src,
-
-        use: '@ngtools/webpack'
-      }]
     }
   },
   webpackKit.htmlPlugin({ template: './src/index.html' }),
@@ -112,8 +91,28 @@ module.exports = ({ target }) => {
         output: {
           filename: '[name].[chunkhash].js'
         },
+        // TypeScript loaders.
+        module: {
+          rules: [{
+            test: /\.ts$/,
+            include: PATHS.src,
+            enforce: 'pre',
+
+            use: 'tslint-loader'
+          }, {
+            test: /\.ts$/,
+            include: PATHS.src,
+
+            use: '@ngtools/webpack'
+          }]
+        },
         plugins: [
-          new webpack.HashedModuleIdsPlugin()
+          new webpack.HashedModuleIdsPlugin(),
+          // Angular AOT
+          new AotPlugin({
+            entryModule: `${PATHS.src}/app/app.module#AppModule`,
+            tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
+          })
         ]
       },
       webpackKit.extractVendor(webpack, { chunks: ['app'] }),
@@ -130,6 +129,27 @@ module.exports = ({ target }) => {
   return merge([
     common,
     {
+      // TypeScript loaders.
+      module: {
+        rules: [{
+          test: /\.ts$/,
+          include: PATHS.src,
+          enforce: 'pre',
+
+          use: 'tslint-loader'
+        }, {
+          test: /\.ts$/,
+          include: PATHS.src,
+
+          use: [
+            {
+              loader: 'awesome-typescript-loader',
+              options: { configFileName: `${PATHS.src}/tsconfig.json` }
+            },
+            'angular2-template-loader'
+          ]
+        }]
+      },
       plugins: [
         new webpack.NamedModulesPlugin()
       ]

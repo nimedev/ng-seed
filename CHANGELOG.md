@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.2.0] - 2017-04-02
+
+### Modified
+- Use AOT only in production.
+
+
 ## [1.1.0] - 2017-04-02
 
 ### Added
