@@ -1,0 +1,10 @@
+@import "../styles/settings";
+
+:root {
+  --font-color: var(--App-accent-df);
+}
+
+h1 {
+  /* Typography */
+  color: var(--font-color);
+}

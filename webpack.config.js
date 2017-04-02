@@ -2,6 +2,8 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
 const path = require('path')
+
+const { AotPlugin } = require('@ngtools/webpack')
 const ip = require('ip')
 const opener = require('opener')
 const stylelint = require('stylelint')
@@ -31,17 +33,24 @@ const common = merge([
       filename: '[name].js'
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+          NG_SEED_API_URL: JSON.stringify(apiUrl)
+        }
+      }),
       // Workaround for angular/angular#11580
       new webpack.ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
         /angular(\\|\/)core(\\|\/)@angular/,
         PATHS.src
       ),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-          NG_SEED_API_URL: JSON.stringify(apiUrl)
-        }
+      // Angular AOT
+      new AotPlugin({
+        entryModule: `${PATHS.src}/app/app.module#AppModule`,
+        mainPath: 'main.ts',
+        skipCodeGeneration: true,
+        tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
       })
     ],
     resolve: {
@@ -60,7 +69,7 @@ const common = merge([
         test: /\.ts$/,
         include: PATHS.src,
 
-        use: 'ts-loader'
+        use: '@ngtools/webpack'
       }]
     }
   },
