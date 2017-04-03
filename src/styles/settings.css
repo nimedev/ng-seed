@@ -25,7 +25,7 @@
   --App-white: rgb(255, 255, 255);
 
   /* Base styles */
-  --App-background: var(--App-lightgrey);
+  --App-background: var(--App-lightergrey);
   --App-textcolor: var(--App-superdark);
   --App-basefont: Lato, Helvetica, "Roboto Slab", "Droid Serif", "Segoe UI Bold", sans-serif;
   --App-backdrop: rgba(33, 33, 33, 0.48);

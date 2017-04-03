@@ -42,6 +42,7 @@ const common = merge([
           NG_SEED_API_URL: JSON.stringify(apiUrl)
         }
       }),
+
       // Workaround for angular/angular#11580
       new webpack.ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
@@ -72,9 +73,6 @@ const common = merge([
   webpackKit.loadFonts({ include: PATHS.fonts }),
   webpackKit.loadAssets({ include: PATHS.src }),
 
-  // Load global css
-  webpackKit.extractCSS({ include: PATHS.styles }),
-
   // Load css of components
   webpackKit.loadCSS({
     include: PATHS.componentStyles,
@@ -91,6 +89,7 @@ module.exports = ({ target }) => {
         output: {
           filename: '[name].[chunkhash].js'
         },
+
         // TypeScript loaders.
         module: {
           rules: [{
@@ -108,6 +107,7 @@ module.exports = ({ target }) => {
         },
         plugins: [
           new webpack.HashedModuleIdsPlugin(),
+
           // Angular AOT
           new AotPlugin({
             entryModule: `${PATHS.src}/app/app.module#AppModule`,
@@ -118,7 +118,10 @@ module.exports = ({ target }) => {
       webpackKit.extractVendor(webpack, { chunks: ['app'] }),
       webpackKit.cleanPlugin(PATHS.dist),
       webpackKit.loadJS({ include: PATHS.src }),
-      webpackKit.minify(webpack)
+      webpackKit.minify(webpack),
+
+      // Load global styles
+      webpackKit.extractCSS({ include: PATHS.styles })
     ])
   }
 
@@ -163,6 +166,9 @@ module.exports = ({ target }) => {
         // HMR on error.
         emitWarning: true
       }
-    })
+    }),
+
+    // Load global styles
+    webpackKit.loadCSS({ include: PATHS.styles })
   ])
 }

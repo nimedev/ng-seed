@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.3.0] - 2017-04-02
+
+### Added
+- Add webpack-bundle-analyzer to stats script.
+
+### Fixed
+- Bug: global styles don`t reload the browser when change.
+
+
 ## [1.2.0] - 2017-04-02
 
 ### Modified
