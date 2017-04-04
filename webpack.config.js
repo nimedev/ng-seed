@@ -4,6 +4,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 const path = require('path')
 
 const { AotPlugin } = require('@ngtools/webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const opener = require('opener')
 const stylelint = require('stylelint')
 const webpack = require('webpack')
@@ -49,7 +50,7 @@ const common = merge([
       extensions: ['.ts', '.js', '.json', '.css']
     }
   },
-  webpackKit.htmlPlugin({ template: './src/index.html' }),
+  webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app']),
   webpackKit.lintCSS(stylelint, { include: PATHS.src }),
   webpackKit.loadHtml({ include: PATHS.src }),
   webpackKit.loadImages({
@@ -102,18 +103,24 @@ module.exports = ({ target }) => {
         },
         plugins: [
           new webpack.HashedModuleIdsPlugin(),
-
-          // Angular AOT
+          new CleanWebpackPlugin([PATHS.dist], {
+            // Without `root` CleanWebpackPlugin won't point to our
+            // project and will fail to work.
+            root: process.cwd()
+          }),
           new AotPlugin({
             entryModule: `${PATHS.src}/app/app.module#AppModule`,
             tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
+          }),
+          new webpack.optimize.UglifyJsPlugin({
+            compress: {
+              warnings: false
+            }
           })
         ]
       },
       webpackKit.extractVendor(webpack, { chunks: ['app'] }),
-      webpackKit.cleanPlugin(PATHS.dist),
       webpackKit.loadJS({ include: PATHS.src }),
-      webpackKit.minify(webpack),
 
       // Load global styles
       webpackKit.extractCSS({ include: PATHS.styles })
@@ -126,6 +133,9 @@ module.exports = ({ target }) => {
   // Return development configurations
   return merge([
     common,
+    {
+      devtool: '#inline-source-map'
+    },
     {
       // TypeScript loaders.
       module: {
@@ -152,7 +162,6 @@ module.exports = ({ target }) => {
         new webpack.NamedModulesPlugin()
       ]
     },
-    webpackKit.generateSourcemaps('#inline-source-map'),
     webpackKit.devServer(webpack, {
       host: webpackEnv.host,
       port: webpackEnv.port

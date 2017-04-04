@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.4.1] - 2017-04-04
+
+### Fixed
+- Order chunks in htmlPlugin block.
+
+### Updated
+- Upgrade dep: rxjs.
+- Upgrade devDep: webpack.
+
+
 ## [1.4.0] - 2017-04-03
 
 ### Modified
