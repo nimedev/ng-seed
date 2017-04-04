@@ -4,16 +4,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 const path = require('path')
 
 const { AotPlugin } = require('@ngtools/webpack')
-const ip = require('ip')
 const opener = require('opener')
 const stylelint = require('stylelint')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const webpackKit = require('webpack-kit-nimedev')
+const webpackEnv = require('./config/webpack-environment')
 
-const host = process.env.NG_SEED_HOST || ip.address()
-const port = process.env.NG_SEED_PORT || 3000
-const apiUrl = process.env.NG_SEED_API_URL || `http://${ip.address()}:${8080}/api`
 const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
@@ -36,12 +33,10 @@ const common = merge([
       filename: '[name].js'
     },
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-          NG_SEED_API_URL: JSON.stringify(apiUrl)
-        }
-      }),
+      new webpack.DefinePlugin(Object.assign(
+        {},
+        webpackEnv.defineEnvironment
+      )),
 
       // Workaround for angular/angular#11580
       new webpack.ContextReplacementPlugin(
@@ -126,7 +121,7 @@ module.exports = ({ target }) => {
   }
 
   // Run opener
-  opener(`http://${host}:${port}`)
+  opener(`http://${webpackEnv.host}:${webpackEnv.port}`)
 
   // Return development configurations
   return merge([
@@ -158,7 +153,10 @@ module.exports = ({ target }) => {
       ]
     },
     webpackKit.generateSourcemaps('#inline-source-map'),
-    webpackKit.devServer(webpack, { host, port }),
+    webpackKit.devServer(webpack, {
+      host: webpackEnv.host,
+      port: webpackEnv.port
+    }),
     webpackKit.loadJS({
       include: PATHS.src,
       eslintOptions: {

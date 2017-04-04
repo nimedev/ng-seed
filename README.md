@@ -37,7 +37,7 @@ If you don't have yarn installed go to [yarn](https://yarnpkg.com/en/docs/instal
 
 ```sh
 ##
-# angularts-wp environment variables
+# ng-seed environment variables
 ##
 
 # Host configuration
@@ -121,7 +121,7 @@ Follow this rules to update dependencies:
 ```sh
 # To install production dependencies
 # cd to project folder
-yarn add angular --exact
+yarn add @angular/core --exact
 
 # To install development dependencies
 # cd to project folder
@@ -132,7 +132,7 @@ yarn add eslint --exact --dev
 
 ```sh
 # cd to project folder
-yarn remove angular
+yarn remove @angular/core
 ```
 
 - **To Upgrade any dependencies follow `Uninstall dependencies` step and install again like `Install dependencies`.**
