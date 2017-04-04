@@ -6,7 +6,6 @@ const path = require('path')
 const { AotPlugin } = require('@ngtools/webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const opener = require('opener')
-const stylelint = require('stylelint')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const webpackKit = require('webpack-kit-nimedev')
@@ -51,7 +50,7 @@ const common = merge([
     }
   },
   webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app']),
-  webpackKit.lintCSS(stylelint, { include: PATHS.src }),
+  webpackKit.lintCSS({ files: 'src/**/*.css' }),
   webpackKit.loadHtml({ include: PATHS.src }),
   webpackKit.loadImages({
     include: PATHS.images,

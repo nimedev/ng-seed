@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.4.2] - 2017-04-04
+
+### Updated
+- Upgrade devDep: webpack-kit-nimedev.
+
+
 ## [1.4.1] - 2017-04-04
 
 ### Fixed

@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "export NODE_ENV='production' && webpack --env.target production",
@@ -88,7 +88,7 @@
     "webpack": "2.3.3",
     "webpack-bundle-analyzer": "2.3.1",
     "webpack-dev-server": "2.4.2",
-    "webpack-kit-nimedev": "5.0.0",
+    "webpack-kit-nimedev": "6.0.0",
     "webpack-merge": "4.1.0"
   },
   "babel": {
