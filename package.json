@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "export NODE_ENV='production' && webpack --env.target production",
@@ -57,9 +57,7 @@
     "@angular/compiler-cli": "4.0.2",
     "@angular/platform-browser-dynamic": "4.0.2",
     "@ngtools/webpack": "1.3.0",
-    "angular2-template-loader": "0.6.2",
     "autoprefixer": "6.7.7",
-    "awesome-typescript-loader": "3.1.2",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.1",
     "babel-preset-es2015": "6.24.1",

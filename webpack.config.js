@@ -32,6 +32,22 @@ const common = merge([
       path: PATHS.dist,
       filename: '[name].js'
     },
+
+    // TypeScript loaders.
+    module: {
+      rules: [{
+        test: /\.ts$/,
+        include: PATHS.src,
+        enforce: 'pre',
+
+        use: 'tslint-loader'
+      }, {
+        test: /\.ts$/,
+        include: PATHS.src,
+
+        use: '@ngtools/webpack'
+      }]
+    },
     plugins: [
       new webpack.DefinePlugin(Object.assign(
         {},
@@ -43,7 +59,12 @@ const common = merge([
         // The (\\|\/) piece accounts for path separators in *nix and Windows
         /angular(\\|\/)core(\\|\/)@angular/,
         PATHS.src
-      )
+      ),
+      new AotPlugin({
+        entryModule: `${PATHS.src}/app/app.module#AppModule`,
+        tsConfigPath: `${PATHS.src}/tsconfig.aot.json`,
+        skipCodeGeneration: process.env.NODE_ENV === 'development'
+      })
     ],
     resolve: {
       extensions: ['.ts', '.js', '.json', '.css']
@@ -84,32 +105,12 @@ module.exports = ({ target }) => {
         output: {
           filename: '[name].[chunkhash].js'
         },
-
-        // TypeScript loaders.
-        module: {
-          rules: [{
-            test: /\.ts$/,
-            include: PATHS.src,
-            enforce: 'pre',
-
-            use: 'tslint-loader'
-          }, {
-            test: /\.ts$/,
-            include: PATHS.src,
-
-            use: '@ngtools/webpack'
-          }]
-        },
         plugins: [
           new webpack.HashedModuleIdsPlugin(),
           new CleanWebpackPlugin([PATHS.dist], {
             // Without `root` CleanWebpackPlugin won't point to our
             // project and will fail to work.
             root: process.cwd()
-          }),
-          new AotPlugin({
-            entryModule: `${PATHS.src}/app/app.module#AppModule`,
-            tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
           }),
           new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -133,30 +134,7 @@ module.exports = ({ target }) => {
   return merge([
     common,
     {
-      devtool: '#inline-source-map'
-    },
-    {
-      // TypeScript loaders.
-      module: {
-        rules: [{
-          test: /\.ts$/,
-          include: PATHS.src,
-          enforce: 'pre',
-
-          use: 'tslint-loader'
-        }, {
-          test: /\.ts$/,
-          include: PATHS.src,
-
-          use: [
-            {
-              loader: 'awesome-typescript-loader',
-              options: { configFileName: `${PATHS.src}/tsconfig.json` }
-            },
-            'angular2-template-loader'
-          ]
-        }]
-      },
+      devtool: '#inline-source-map',
       plugins: [
         new webpack.NamedModulesPlugin()
       ]

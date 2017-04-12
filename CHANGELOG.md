@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.5.0] - 2017-04-11
+
+### Modified
+- Use @ngtools/webpack instead angular2-template-loader and awesome-typescript-loader in development.
+- Use Object.freeze() in app-config.
+- Move html content to template property.
+
+### Updated
+- Upgrade dep: @angular/common, @angular/core, @angular/platform-browser and @angular/router.
+- Upgrade devDep: @angular/compiler, @angular/compiler-cli, @angular/platform-browser-dynamic, babel-core, babel-preset-es2015, babel-preset-stage-1, tslint, tslint-loader and typings.
+
+
 ## [1.4.2] - 2017-04-04
 
 ### Updated
