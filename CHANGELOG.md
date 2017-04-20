@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.5.1] - 2017-04-20
+
+### Updated
+- Upgrade devDep: babel-eslint eslint-config-nimedev-base tslint-config-nimedev webpack webpack-bundle-analyzer.
+
+
 ## [1.5.0] - 2017-04-11
 
 ### Modified

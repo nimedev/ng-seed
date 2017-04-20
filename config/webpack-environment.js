@@ -3,6 +3,8 @@
  * @module webpack-environment
  */
 
+'use strict'
+
 /* eslint-disable import/no-extraneous-dependencies */
 const ip = require('ip')
 
