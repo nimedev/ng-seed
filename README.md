@@ -164,10 +164,6 @@ yarn lint
 **[SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)**.
 
 
-## Editors
-This project is configured to use with `VScode`. Also contain pre-configured task for development. See `.vscode` folder to explore the options.
-
-
 ## [Contributing](CONTRIBUTING.md)
 
 

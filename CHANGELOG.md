@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.6.0] - 2017-04-20
+
+### Modified
+- Remove: .vscode folder.
+
+
 ## [1.5.1] - 2017-04-20
 
 ### Updated
