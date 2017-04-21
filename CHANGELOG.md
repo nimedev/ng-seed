@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.0.0] - 2017-04-21
+
+### Modified
+- Breaking: change the way to export the config constants in app-config.
+
+
 ## [1.6.0] - 2017-04-20
 
 ### Modified

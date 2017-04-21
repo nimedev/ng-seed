@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "export NODE_ENV='production' && webpack --env.target production",

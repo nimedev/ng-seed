@@ -17,10 +17,10 @@ import './robots.txt'
 
 // App module
 import { AppModule } from './app/app.module'
-import appConfig from './app-config'
+import { ENV } from './app-config'
 
 // Enable production mode
-if (appConfig.ENV === 'production') {
+if (ENV === 'production') {
   enableProdMode()
   platformBrowser().bootstrapModule(AppModule)
 } else {
