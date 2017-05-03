@@ -1,5 +1,16 @@
 # Change Log
 
+## [2.1.0] - 2017-05-02
+
+### Modified
+- Improve webpack configuratio to use lazy loading.
+
+### Updated
+- Upgrade dep: rxjs zone.js.
+- Upgrade devDep: @ngtools/webpack babel-eslint postcss-nested tslint-loader typescript webpack-dev-server.
+- Upgrade to Angular 4.1.0.
+
+
 ## [2.0.0] - 2017-04-21
 
 ### Modified
