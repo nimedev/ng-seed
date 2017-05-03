@@ -34,6 +34,9 @@ const common = merge([
       path: PATHS.dist,
       filename: '[name].js'
     },
+    resolve: {
+      extensions: ['.ts', '.js', '.json', '.css']
+    },
 
     // TypeScript loaders.
     module: {
@@ -50,30 +53,18 @@ const common = merge([
         use: '@ngtools/webpack'
       }]
     },
+
     plugins: [
       new webpack.DefinePlugin(Object.assign(
         {},
         webpackEnv.defineEnvironment
       )),
-
-      // Workaround for angular/angular#11580
-      new webpack.ContextReplacementPlugin(
-        // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)@angular/,
-        PATHS.src
-      ),
       new AotPlugin({
         entryModule: `${PATHS.src}/app/app.module#AppModule`,
-        tsConfigPath: `${PATHS.src}/tsconfig.aot.json`,
-        skipCodeGeneration: process.env.NODE_ENV === 'development'
+        tsConfigPath: `${PATHS.src}/tsconfig.aot.json`
       })
-    ],
-    resolve: {
-      extensions: ['.ts', '.js', '.json', '.css']
-    }
+    ]
   },
-  webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app']),
-  webpackKit.lintCSS({ files: 'src/**/*.css' }),
   webpackKit.loadHtml({ include: PATHS.src }),
   webpackKit.loadImages({
     include: PATHS.images,
@@ -91,11 +82,27 @@ const common = merge([
   webpackKit.loadFonts({ include: PATHS.fonts }),
   webpackKit.loadAssets({ include: PATHS.src }),
 
+  // CSS
+  webpackKit.lintCSS({ files: 'src/**/*.css' }),
+
   // Load css of components
   webpackKit.loadCSS({
     include: PATHS.componentStyles,
     useExportsLoader: true
-  })
+  }),
+
+  // JS
+  webpackKit.loadJS({
+    include: PATHS.src,
+    eslintOptions: {
+      // Emit warnings over errors to avoid crashing
+      // HMR on error.
+      emitWarning: process.env.NODE_ENV === 'development'
+    }
+  }),
+
+  // Plugins
+  webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app'])
 ])
 
 module.exports = ({ target }) => {
@@ -105,7 +112,8 @@ module.exports = ({ target }) => {
       common,
       {
         output: {
-          filename: '[name].[chunkhash].js'
+          filename: '[name].[chunkhash].js',
+          chunkFilename: '[id].[chunkhash].js'
         },
         plugins: [
           new webpack.HashedModuleIdsPlugin(),
@@ -122,7 +130,6 @@ module.exports = ({ target }) => {
         ]
       },
       webpackKit.extractVendor(webpack, { chunks: ['app'] }),
-      webpackKit.loadJS({ include: PATHS.src }),
 
       // Load global styles
       webpackKit.extractCSS({ include: PATHS.styles })
@@ -144,14 +151,6 @@ module.exports = ({ target }) => {
     webpackKit.devServer(webpack, {
       host: webpackEnv.host,
       port: webpackEnv.port
-    }),
-    webpackKit.loadJS({
-      include: PATHS.src,
-      eslintOptions: {
-        // Emit warnings over errors to avoid crashing
-        // HMR on error.
-        emitWarning: true
-      }
     }),
 
     // Load global styles
