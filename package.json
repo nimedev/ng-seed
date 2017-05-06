@@ -50,7 +50,7 @@
     "niduscss-elements-link": "1.1.1",
     "niduscss-elements-typography": "1.1.2",
     "rxjs": "5.3.1",
-    "zone.js": "0.8.9"
+    "zone.js": "0.8.10"
   },
   "devDependencies": {
     "@angular/compiler": "4.1.0",
