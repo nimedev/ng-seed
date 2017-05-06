@@ -1,5 +1,16 @@
 # Change Log
 
+## [2.2.0] - 2017-05-06
+
+### Modified
+- Improve webpack configuration.
+
+### Updated
+- Upgrade to Angular v4.1.1.
+- Upgrade dep: zone.js.
+- Upgrade devDep: tslint webpack webpack-kit-nimedev.
+
+
 ## [2.1.0] - 2017-05-02
 
 ### Modified
