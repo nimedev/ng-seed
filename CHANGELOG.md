@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.2.1] - 2017-05-22
+
+### Updated
+- Upgrade to Angular v4.1.3.
+- Upgrade dep: rxjs zone.js.
+- Upgrade devDep: autoprefixer postcss-calc postcss-color-function postcss-custom-media postcss-custom-properties postcss-import postcss-mixins postcss-nested webpack webpack-bundle-analyzer webpack-kit-nimedev.
+
+
 ## [2.2.0] - 2017-05-06
 
 ### Modified
