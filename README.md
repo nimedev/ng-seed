@@ -3,6 +3,17 @@
 > A starting point for building web applications with Angular using Webpack and PostCSS.
 
 
+## Table of Contents
+
+  1. [Prerequisites](#prerequisites)
+  1. [Install dependencies](#install-dependencies)
+  1. [Workflow](#workflow)
+  1. [Style Guides](#style-guides)
+  1. [Contributing](#contributing)
+  1. [Changelog](#changelog)
+  1. [Licencse](#license)
+
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/download/).
@@ -35,6 +46,11 @@ npm update npm -g
 
 
 ## Workflow
+
+  1. [Environment variables](#environment-variables)
+  1. [Development workflow](#development-workflow)
+  1. [Handle dependencies](#handle-dependencies)
+  1. [Scripts](#others-scripts)
 
 ### Environment variables
 
