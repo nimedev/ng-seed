@@ -1,5 +1,11 @@
 # Change Log
 
+## [3.0.1] - 2017-05-30
+
+### Added
+- Add documentation to handle dependencies sections.
+
+
 ## [3.0.0] - 2017-05-30
 
 ### Added

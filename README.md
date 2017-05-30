@@ -154,6 +154,13 @@ npm install eslint -D
 npm uninstall @angular/core
 ```
 
+- Check outdated dependencies
+
+```sh
+# cd to project folder
+npm outdated --long
+```
+
 - **To Upgrade any dependencies follow `Uninstall dependencies` step and install again like `Install dependencies`.**
 
 ### Others scripts
