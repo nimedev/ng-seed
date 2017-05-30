@@ -21,7 +21,7 @@ module.exports = {
   defineEnvironment: {
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      NG_SEED_API_URL: JSON.stringify(apiUrl)
-    }
-  }
+      NG_SEED_API_URL: JSON.stringify(apiUrl),
+    },
+  },
 }

@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.0.0] - 2017-05-30
+
+### Added
+- Add table of content links to README.md.
+
+### Modified
+- [Breaking Change] Upgrade to npm v5.0.0 and update README.md documentation.
+- Upgrade devDep: @ngtools/webpack eslint-config-nimedev-base eslint-plugin-import tslint tslint-config-nimedev typescript webpack webpack-kit-nimedev.
+
 ## [2.2.1] - 2017-05-22
 
 ### Updated

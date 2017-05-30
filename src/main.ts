@@ -4,16 +4,12 @@
  */
 /// <reference path="./typings/index.d.ts" />
 
-import { enableProdMode } from '@angular/core'
-import { platformBrowser } from '@angular/platform-browser'
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
-
 // Global styles
 import './styles'
 
-// Assets to bundle with webpack
-import './favicon.ico'
-import './robots.txt'
+import { enableProdMode } from '@angular/core'
+import { platformBrowser } from '@angular/platform-browser'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
 // App module
 import { AppModule } from './app/app.module'

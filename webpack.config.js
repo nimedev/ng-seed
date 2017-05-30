@@ -20,7 +20,14 @@ const PATHS = {
   icons: path.join(__dirname, 'src/assets/icons'),
   fonts: path.join(__dirname, 'src/assets/fonts'),
   styles: path.join(__dirname, 'src/styles/index.css'),
-  componentStyles: path.join(__dirname, 'src/app')
+  componentStyles: path.join(__dirname, 'src/app'),
+  assets: [
+    {
+      from: path.join(__dirname, 'src/favicon.ico'),
+    }, {
+      from: path.join(__dirname, 'src/robots.txt'),
+    },
+  ],
 }
 
 const common = merge([
@@ -28,30 +35,34 @@ const common = merge([
   {
     entry: {
       app: `${PATHS.src}/main.ts`,
-      polyfills: `${PATHS.src}/polyfills.ts`
+      polyfills: `${PATHS.src}/polyfills.ts`,
     },
     output: {
       path: PATHS.dist,
-      filename: '[name].js'
+      filename: '[name].js',
+      chunkFilename: '[id].chunk.js',
     },
     resolve: {
-      extensions: ['.ts', '.js', '.json', '.css']
+      extensions: ['.ts', '.js', '.json', '.css'],
     },
 
     // TypeScript loaders.
     module: {
-      rules: [{
-        test: /\.ts$/,
-        include: PATHS.src,
-        enforce: 'pre',
+      rules: [
+        // {
+        //   test: /\.ts$/,
+        //   include: PATHS.src,
+        //   enforce: 'pre',
 
-        use: 'tslint-loader'
-      }, {
-        test: /\.ts$/,
-        include: PATHS.src,
+        //   use: 'tslint-loader',
+        // },
+        {
+          test: /\.ts$/,
+          include: PATHS.src,
 
-        use: '@ngtools/webpack'
-      }]
+          use: '@ngtools/webpack',
+        },
+      ],
     },
 
     plugins: [
@@ -62,15 +73,14 @@ const common = merge([
       new AotPlugin({
         entryModule: `${PATHS.src}/app/app.module#AppModule`,
         tsConfigPath: `${PATHS.src}/tsconfig.aot.json`,
-        skipCodeGeneration: process.env.NODE_ENV === 'development'
-      })
-    ]
+        skipCodeGeneration: process.env.NODE_ENV === 'development',
+      }),
+    ],
   },
   webpackKit.loadHtml({ include: PATHS.src }),
   webpackKit.loadImages({ include: PATHS.images }),
   webpackKit.loadSvgSprite({ include: PATHS.icons }),
   webpackKit.loadFonts({ include: PATHS.fonts }),
-  webpackKit.loadAssets({ include: PATHS.src }),
 
   // CSS
   webpackKit.lintCSS({ files: 'src/**/*.css' }),
@@ -78,7 +88,7 @@ const common = merge([
   // Load css of components
   webpackKit.loadCSS({
     include: PATHS.componentStyles,
-    useExportsLoader: true
+    useExportsLoader: true,
   }),
 
   // JS
@@ -87,12 +97,12 @@ const common = merge([
     eslintOptions: {
       // Emit warnings over errors to avoid crashing
       // HMR on error.
-      emitWarning: process.env.NODE_ENV === 'development'
-    }
+      emitWarning: process.env.NODE_ENV === 'development',
+    },
   }),
 
   // Plugins
-  webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app'])
+  webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app']),
 ])
 
 module.exports = ({ target }) => {
@@ -103,26 +113,27 @@ module.exports = ({ target }) => {
       {
         output: {
           filename: '[name].[chunkhash].js',
-          chunkFilename: '[id].[chunkhash].js'
+          chunkFilename: '[id].[chunkhash].js',
         },
         plugins: [
           new webpack.HashedModuleIdsPlugin(),
           new CleanWebpackPlugin([PATHS.dist], {
             // Without `root` CleanWebpackPlugin won't point to our
             // project and will fail to work.
-            root: process.cwd()
+            root: process.cwd(),
           }),
           new webpack.optimize.UglifyJsPlugin({
             compress: {
-              warnings: false
-            }
-          })
-        ]
+              warnings: false,
+            },
+          }),
+        ],
       },
+      webpackKit.copyPlugin(PATHS.assets),
       webpackKit.extractVendor(webpack, { chunks: ['app'] }),
 
       // Load global styles
-      webpackKit.extractCSS({ include: PATHS.styles })
+      webpackKit.extractCSS({ include: PATHS.styles }),
     ])
   }
 
@@ -135,15 +146,15 @@ module.exports = ({ target }) => {
     {
       devtool: '#inline-source-map',
       plugins: [
-        new webpack.NamedModulesPlugin()
-      ]
+        new webpack.NamedModulesPlugin(),
+      ],
     },
     webpackKit.devServer(webpack, {
       host: webpackEnv.host,
-      port: webpackEnv.port
+      port: webpackEnv.port,
     }),
 
     // Load global styles
-    webpackKit.loadCSS({ include: PATHS.styles })
+    webpackKit.loadCSS({ include: PATHS.styles }),
   ])
 }
