@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "export NODE_ENV='production' && webpack --env.target production",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/nimedev/ng-seed#readme",
   "engines": {
-    "npm": ">=3.10.10",
+    "npm": ">=5.0.0",
     "node": ">=6.10 <7.0.0"
   },
   "dependencies": {
@@ -96,11 +96,7 @@
     ]
   },
   "eslintConfig": {
-    "extends": "nimedev-base",
-    "env": {
-      "browser": true
-    },
-    "parser": "babel-eslint"
+    "extends": "nimedev-base"
   },
   "postcss": {
     "plugins": {
