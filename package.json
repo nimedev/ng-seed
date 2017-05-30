@@ -4,7 +4,7 @@
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "export NODE_ENV='production' && webpack --env.target production",
-    "install:dev": "export NODE_ENV='development' && yarn",
+    "install:dev": "export NODE_ENV='development' && npm install",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:ts",
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:js": "eslint . --ext js",

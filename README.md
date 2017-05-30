@@ -7,7 +7,6 @@
 
 - [Node.js](https://nodejs.org/en/download/).
 - [npm](https://www.npmjs.com/), installed with Node.js.
-- [yarn](https://yarnpkg.com/) a package manager for project dependencies.
 
 
 ## Install dependencies
@@ -21,14 +20,18 @@ The version should be at or above 6.10
 
 If you don't have Node.js installed go to [nodejs](https://nodejs.org/en/download/) and install the appropiate version or use [nvm](http://www.sergiolepore.net/2014/06/30/nvm-instalando-y-usando-node-version-manager/) (Recommended).
 
-#### 2) Check `yarn` version.
+#### 2) Check `npm` version.
 
 ```sh
-yarn --version
+npm --version
 ```
-The version should be at or above 0.21.0
+The version should be at or above 5.0.0
 
-If you don't have yarn installed go to [yarn](https://yarnpkg.com/en/docs/install) and install the appropiate version.
+Update npm version
+
+```sh
+npm update npm -g
+```
 
 
 ## Workflow
@@ -67,7 +70,7 @@ export NG_SEED_PORT=8000
 
 ```sh
 # cd to project folder
-yarn
+npm install
 ```
 
 #### Static server with live reload
@@ -76,7 +79,7 @@ The browser reloads the app when any file change:
 
 ```sh
 # cd to project folder
-yarn start
+npm start
 # After this, a message indicate the url to run the application
 ```
 
@@ -92,10 +95,10 @@ You can use two ways:
 # cd to project folder
 # Install the workspace dependencies.
 # This npm script force the installation of development dependencies.
-yarn install:dev
+npm run install:dev
 
 # Build
-yarn build
+npm run build
 ```
 After run this script the `dist` folder is ready for production.
 > Run the previous script again every time that update the repository.
@@ -107,13 +110,13 @@ After run this script the `dist` folder is ready for production.
 
 ```sh
 # cd to project folder
-yarn build
+npm run build
 ```
 After this, all files are ready in `dist` folder to upload in any production server.
 
 :warning: Reset the environment variables to `development` values.
 
-### Install/Uninstall/Update dependencies
+### Handle dependencies
 Follow this rules to update dependencies:
 
 - Install dependencies
@@ -121,29 +124,38 @@ Follow this rules to update dependencies:
 ```sh
 # To install production dependencies
 # cd to project folder
-yarn add @angular/core --exact
+npm install @angular/core
 
 # To install development dependencies
 # cd to project folder
-yarn add eslint --exact --dev
+npm install eslint -D
 ```
 
 - Uninstall dependencies
 
 ```sh
 # cd to project folder
-yarn remove @angular/core
+npm uninstall @angular/core
 ```
 
 - **To Upgrade any dependencies follow `Uninstall dependencies` step and install again like `Install dependencies`.**
 
 ### Others scripts
 
-To run eslint in console type:
+To run linters in console type:
 
 ```sh
-# cd to project folder
-yarn lint
+# Run all linters
+npm run lint
+
+# Run only stylelint
+npm run lint:css
+
+# Run only eslint for js files
+npm run lint:js
+
+# Run only tslint for ts files
+npm run lint:ts
 ```
 
 
