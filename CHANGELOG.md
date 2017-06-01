@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.1.0] - 2017-05-31
+
+### Added
+- Implement codelyzer to check Angular style guide.
+
+### Updated
+- Upgrade devDep: @ngtools/webpack eslint-config-nimedev-base tslint typescript.
+
+
 ## [3.0.2] - 2017-05-30
 
 ### Fixed
