@@ -1,10 +1,10 @@
 {
   "name": "ng-seed",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
-    "build": "export NODE_ENV='production' && webpack --env.target production",
-    "install:dev": "export NODE_ENV='development' && npm install",
+    "build": "npm run install:dev && export NODE_ENV='production' && webpack --env.target production",
+    "install:dev": "npm install --production=false",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:ts",
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:js": "eslint . --ext js",

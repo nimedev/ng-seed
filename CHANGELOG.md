@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.1.1] - 2017-05-31
+
+### Modified
+- Use install:dev script in build script.
+
+### Fixed
+- Fix bug in install:dev script.
+
+
 ## [3.1.0] - 2017-05-31
 
 ### Added
