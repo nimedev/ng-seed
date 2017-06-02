@@ -41,7 +41,7 @@ The version should be at or above 5.0.0
 Update npm version
 
 ```sh
-npm update npm -g
+npm install -g npm
 ```
 
 
@@ -49,6 +49,7 @@ npm update npm -g
 
   1. [Environment variables](#environment-variables)
   1. [Development workflow](#development-workflow)
+  1. [Production workflow](#production-workflow)
   1. [Handle dependencies](#handle-dependencies)
   1. [Scripts](#others-scripts)
 
@@ -101,36 +102,16 @@ npm start
 
 ### Production workflow
 
-You can use two ways:
-
-#### The repository is in `production` server
 - Set the environment variables with production values. `export NODE_ENV='production'`, ...
 - Run:
 
 ```sh
 # cd to project folder
-# Install the workspace dependencies.
-# This npm script force the installation of development dependencies.
-npm run install:dev
-
-# Build
 npm run build
 ```
 After run this script the `dist` folder is ready for production.
-> Run the previous script again every time that update the repository.
 
-#### Build in `development` environment and upload the files to production server.
-- Verify that all dependencies are installed.
-- Set the environment variable with production values
-- Build the application
-
-```sh
-# cd to project folder
-npm run build
-```
-After this, all files are ready in `dist` folder to upload in any production server.
-
-:warning: Reset the environment variables to `development` values.
+:warning: Reset the environment variables to `development` values if you build in development environment environment.
 
 ### Handle dependencies
 Follow this rules to update dependencies:
