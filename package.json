@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "npm run install:dev && export NODE_ENV='production' && webpack --env.target production",
@@ -66,7 +66,7 @@
     "codelyzer": "3.0.1",
     "eslint": "3.19.0",
     "eslint-config-nimedev-base": "5.0.0",
-    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-import": "2.4.0",
     "ip": "1.1.5",
     "opener": "1.4.3",
     "postcss-calc": "6.0.0",
@@ -79,7 +79,7 @@
     "pre-commit": "1.2.2",
     "stylelint": "7.10.1",
     "stylelint-config-niduscss": "1.0.0",
-    "tslint": "5.4.0",
+    "tslint": "5.4.2",
     "tslint-config-nimedev-ng": "1.0.3",
     "tslint-loader": "3.5.3",
     "typescript": "2.3.4",

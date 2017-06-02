@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.1.2] - 2017-06-02
+
+### Fixed
+- Fix README.md documentation.
+
+### Updated
+- Upgrade devDep: eslint-plugin-import tslint.
+
+
 ## [3.1.1] - 2017-05-31
 
 ### Modified
