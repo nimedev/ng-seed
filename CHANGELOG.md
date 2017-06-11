@@ -1,5 +1,15 @@
 # Change Log
 
+## [3.2.0] - 2017-06-11
+
+### Modified
+- Organize styles settings by modules.
+
+### Updated
+- Upgrade dep: zone.js.
+- Upgrade devDep: @ngtools/webpack babel-core stylelint tslint webpack-kit-nimedev.
+
+
 ## [3.1.2] - 2017-06-02
 
 ### Fixed

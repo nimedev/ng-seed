@@ -1,0 +1,23 @@
+/* Custom media queries (Mobile first)
+   ========================================================================== */
+
+/* Portrait mobiles */
+
+@custom-media --for-phone-only (max-width: 37.4375rem);
+
+/* Portrait tablets, landscape mobiles */
+
+@custom-media --for-tablet-portrait-up (min-width: 37.5rem);
+@custom-media --for-tablet-portrait-down (max-width: 56.1875rem);
+
+/* Landscape tablets */
+
+@custom-media --for-tablet-landscape-up (min-width: 56.25rem);
+
+/* Desktops */
+
+@custom-media --for-desktop-up (min-width: 75rem);
+
+/* Large desktops */
+
+@custom-media --for-big-desktop-up (min-width: 112.5rem);
