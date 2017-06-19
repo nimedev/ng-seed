@@ -1,5 +1,19 @@
 # Change Log
 
+## [3.3.0] - 2017-06-19
+
+### Added
+- Add inline entry point and ProgressPlugin to webpack configuration.
+
+### Deleted
+- Remove pre-commit hook.
+
+### Updated
+- Upgrade to Angular v4.2.3.
+- Upgrade dep: rxjs.
+- Upgrade devDep: stylelint.
+
+
 ## [3.2.0] - 2017-06-11
 
 ### Modified

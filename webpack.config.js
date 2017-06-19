@@ -9,10 +9,13 @@ const { AotPlugin } = require('@ngtools/webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const opener = require('opener')
 const webpack = require('webpack')
+const { CommonsChunkPlugin } = require('webpack').optimize
+const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const merge = require('webpack-merge')
 const webpackKit = require('webpack-kit-nimedev')
 const webpackEnv = require('./config/webpack-environment')
 
+const entryPoints = ['inline', 'polyfills', 'vendor', 'app']
 const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
@@ -70,6 +73,7 @@ const common = merge([
         {},
         webpackEnv.defineEnvironment
       )),
+      new ProgressPlugin(),
       new AotPlugin({
         entryModule: `${PATHS.src}/app/app.module#AppModule`,
         tsConfigPath: `${PATHS.src}/tsconfig.aot.json`,
@@ -102,7 +106,7 @@ const common = merge([
   }),
 
   // Plugins
-  webpackKit.htmlPlugin({ template: './src/index.html' }, ['polyfills', 'vendor', 'app']),
+  webpackKit.htmlPlugin({ template: './src/index.html' }, entryPoints),
 ])
 
 module.exports = ({ target }) => {
@@ -126,6 +130,10 @@ module.exports = ({ target }) => {
             compress: {
               warnings: false,
             },
+          }),
+          new CommonsChunkPlugin({
+            name: ['inline'],
+            minChunks: null,
           }),
         ],
       },
