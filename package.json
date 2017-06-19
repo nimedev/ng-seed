@@ -15,9 +15,6 @@
     "typings": "cd src && typings install",
     "watch": "export NODE_ENV='development' && webpack-dev-server --env.target development"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nimedev/ng-seed.git"
@@ -76,7 +73,6 @@
     "postcss-import": "10.0.0",
     "postcss-mixins": "6.0.0",
     "postcss-nested": "2.0.2",
-    "pre-commit": "1.2.2",
     "stylelint": "7.11.1",
     "stylelint-config-niduscss": "1.0.0",
     "tslint": "5.4.3",
