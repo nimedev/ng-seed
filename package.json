@@ -49,7 +49,7 @@
     "niduscss-elements-form": "1.3.0",
     "niduscss-elements-link": "1.1.1",
     "niduscss-elements-typography": "1.1.2",
-    "rxjs": "5.4.0",
+    "rxjs": "5.4.1",
     "zone.js": "0.8.12"
   },
   "devDependencies": {
