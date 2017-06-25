@@ -1,5 +1,12 @@
 # Change Log
 
+## [3.4.0] - 2017-06-25
+
+### Updated
+- Upgrade to Angular v4.2.4.
+- Upgrade devDep: @ngtools/webpack codelyzer eslint eslint-config-nimedev-base eslint-plugin-import postcss-mixins webpack webpack-dev-server webpack-kit-nimedev.
+
+
 ## [3.3.0] - 2017-06-19
 
 ### Added
