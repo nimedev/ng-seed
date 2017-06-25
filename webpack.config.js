@@ -9,7 +9,7 @@ const { AotPlugin } = require('@ngtools/webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const opener = require('opener')
 const webpack = require('webpack')
-const { CommonsChunkPlugin } = require('webpack').optimize
+const { CommonsChunkPlugin, ModuleConcatenationPlugin } = require('webpack').optimize
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const merge = require('webpack-merge')
 const webpackKit = require('webpack-kit-nimedev')
@@ -69,11 +69,11 @@ const common = merge([
     },
 
     plugins: [
+      new ProgressPlugin(),
       new webpack.DefinePlugin(Object.assign(
         {},
         webpackEnv.defineEnvironment
       )),
-      new ProgressPlugin(),
       new AotPlugin({
         entryModule: `${PATHS.src}/app/app.module#AppModule`,
         tsConfigPath: `${PATHS.src}/tsconfig.aot.json`,
@@ -120,6 +120,7 @@ module.exports = ({ target }) => {
           chunkFilename: '[id].[chunkhash].js',
         },
         plugins: [
+          new ModuleConcatenationPlugin(),
           new webpack.HashedModuleIdsPlugin(),
           new CleanWebpackPlugin([PATHS.dist], {
             // Without `root` CleanWebpackPlugin won't point to our
