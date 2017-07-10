@@ -1,5 +1,15 @@
 # Change Log
 
+## [4.0.0] - 2017-07-10
+
+### Delete
+- [Breaking change] Remove JS support.
+
+### Updated
+- Upgrade to Angular 4.2.6.
+- Upgrade dep: niduscss-elements-form rxjs.
+
+
 ## [3.4.0] - 2017-06-25
 
 ### Updated
