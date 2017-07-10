@@ -13,7 +13,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
 // App module
 import { AppModule } from './app/app.module'
-import { ENV } from './app-config'
+import { ENV } from './app.config'
 
 // Enable production mode
 if (ENV === 'production') {

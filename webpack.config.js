@@ -95,16 +95,6 @@ const common = merge([
     useExportsLoader: true,
   }),
 
-  // JS
-  webpackKit.loadJS({
-    include: PATHS.src,
-    eslintOptions: {
-      // Emit warnings over errors to avoid crashing
-      // HMR on error.
-      emitWarning: process.env.NODE_ENV === 'development',
-    },
-  }),
-
   // Plugins
   webpackKit.htmlPlugin({ template: './src/index.html' }, entryPoints),
 ])
