@@ -1,8 +1,7 @@
 /**
  * Main module used to bootstrap de application
- * @module index
+ * @module main
  */
-/// <reference path="./typings/index.d.ts" />
 
 // Global styles
 import './styles'

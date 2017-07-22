@@ -8,8 +8,11 @@
     ],
     "moduleResolution" : "node",
     "noUnusedLocals": true,
+    "sourceMap": true,
     "target": "es5",
-    "sourceMap": true
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
   },
   "exclude": [
     "typings"
