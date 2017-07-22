@@ -11,7 +11,6 @@
     "lint:js": "eslint . --ext js",
     "lint:ts": "tslint 'src/**/*.ts'",
     "start": "npm run watch",
-    "stats": "export NODE_ENV='production' && webpack --env.target production --profile --json > webpack-stats.json && webpack-bundle-analyzer webpack-stats.json dist",
     "watch": "export NODE_ENV='development' && webpack-dev-server --env.target development"
   },
   "repository": {
