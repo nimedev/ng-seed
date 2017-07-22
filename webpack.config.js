@@ -129,7 +129,7 @@ module.exports = ({ target }) => {
         ],
       },
       webpackKit.copyPlugin(PATHS.assets),
-      webpackKit.extractVendor(webpack, { chunks: ['app'] }),
+      webpackKit.extractVendor({ chunks: ['app'] }),
 
       // Load global styles
       webpackKit.extractCSS({ include: PATHS.styles }),
@@ -148,7 +148,7 @@ module.exports = ({ target }) => {
         new webpack.NamedModulesPlugin(),
       ],
     },
-    webpackKit.devServer(webpack, {
+    webpackKit.devServer({
       host: webpackEnv.host,
       port: webpackEnv.port,
     }),
