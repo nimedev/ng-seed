@@ -1,5 +1,13 @@
 # Change Log
 
+## [4.0.1] - 2017-07-22
+
+### Updated
+- Upgrade dep: zone.js.
+- Upgrade devDep: @ngtools/webpack eslint postcss-nested typescript webpack webpack-bundle-analyzer webpack-dev-server webpack-kit-nimedev.
+- Upgrade to Angular v4.3.1.
+
+
 ## [4.0.0] - 2017-07-10
 
 ### Delete
