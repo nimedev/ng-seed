@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "npm run install:dev && npm run build:prod",
@@ -68,7 +68,7 @@
     "postcss-import": "10.0.0",
     "postcss-mixins": "6.0.1",
     "postcss-nested": "2.0.4",
-    "stylelint": "7.12.0",
+    "stylelint": "7.13.0",
     "stylelint-config-niduscss": "1.0.0",
     "tslint": "5.5.0",
     "tslint-config-nimedev-ng": "1.1.0",

@@ -1,5 +1,12 @@
 # Change Log
 
+## [4.1.0] - 2017-07-23
+
+### Modified
+- Improve code splitting using three-party-libs chunk.
+- Use @types instead typings.
+
+
 ## [4.0.1] - 2017-07-22
 
 ### Updated
