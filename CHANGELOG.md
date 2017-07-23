@@ -6,6 +6,9 @@
 - Improve code splitting using three-party-libs chunk.
 - Use @types instead typings.
 
+### Updated
+- Upgrade devDep: stylelint.
+
 
 ## [4.0.1] - 2017-07-22
 
