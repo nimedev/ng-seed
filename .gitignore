@@ -13,7 +13,6 @@ node_modules
 typings
 npm-debug.log
 npm-debug.log.*
-webpack-stats.json
 
 # System Files
 .DS_Store
