@@ -35,10 +35,10 @@
     "node": ">=6.10 <7.0.0"
   },
   "dependencies": {
-    "@angular/common": "4.3.1",
-    "@angular/core": "4.3.1",
-    "@angular/platform-browser": "4.3.1",
-    "@angular/router": "4.3.1",
+    "@angular/common": "4.3.2",
+    "@angular/core": "4.3.2",
+    "@angular/platform-browser": "4.3.2",
+    "@angular/router": "4.3.2",
     "core-js": "2.4.1",
     "niduscss-base": "1.0.1",
     "niduscss-elements-form": "2.0.0",
@@ -48,9 +48,9 @@
     "zone.js": "0.8.14"
   },
   "devDependencies": {
-    "@angular/compiler": "4.3.1",
-    "@angular/compiler-cli": "4.3.1",
-    "@angular/platform-browser-dynamic": "4.3.1",
+    "@angular/compiler": "4.3.2",
+    "@angular/compiler-cli": "4.3.2",
+    "@angular/platform-browser-dynamic": "4.3.2",
     "@ngtools/webpack": "1.5.2",
     "@types/node": "8.0.15",
     "autoprefixer": "7.1.2",
