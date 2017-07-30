@@ -1,5 +1,13 @@
 # Change Log
 
+## [4.1.1] - 2017-07-30
+
+### Updated
+- Upgrade dep: zone.js.
+- Upgrade devDep: @ngtools/webpack @types/node postcss-nested stylelint stylelint-config-niduscss webpack webpack-dev-server webpack-kit-nimedev
+- Upgrade to Angular 4.3.2.
+
+
 ## [4.1.0] - 2017-07-23
 
 ### Modified
