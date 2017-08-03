@@ -9,7 +9,7 @@
     "lint": "npm run lint:css && npm run lint:js && npm run lint:ts",
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:js": "eslint . --ext js",
-    "lint:ts": "tslint 'src/**/*.ts'",
+    "lint:ts": "tslint -p src/tsconfig.json 'src/**/*.ts'",
     "start": "npm run watch",
     "watch": "export NODE_ENV='development' && webpack-dev-server --env.target development"
   },

@@ -1,6 +1,5 @@
 /**
  * Config constants for the application.
- * @module app.config
  */
 
 // API base url
