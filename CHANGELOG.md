@@ -1,5 +1,15 @@
 # Change Log
 
+## [4.2.0] - 2017-08-03
+
+### Modified
+- Update tslint configuration.
+
+### Updated
+- Upgrade devDep: @types/node tslint-config-nimedev-ng.
+- Upgrade Angular to 4.3.3.
+
+
 ## [4.1.1] - 2017-07-30
 
 ### Updated
