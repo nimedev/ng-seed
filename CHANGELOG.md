@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.2.1] - 2017-08-06
+
+### Updated
+- Upgrade devDep: eslint webpack-bundle-analyzer webpack-kit-nimedev.
+
+
 ## [4.2.0] - 2017-08-03
 
 ### Modified
