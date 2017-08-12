@@ -1,5 +1,14 @@
 # Change Log
 
+## [4.2.2] - 2017-08-12
+
+### Updated
+- Upgrade dep: core-js rxjs.
+- Upgrade devDep: @ngtools/webpack @types/node eslint postcss-nested tslint webpack webpack-dev-server.
+- Upgrade to Angular v4.3.4.
+- Update package engine.
+
+
 ## [4.2.1] - 2017-08-06
 
 ### Updated
