@@ -39,12 +39,12 @@
     "@angular/core": "4.3.4",
     "@angular/platform-browser": "4.3.4",
     "@angular/router": "4.3.4",
-    "core-js": "2.4.1",
+    "core-js": "2.5.0",
     "niduscss-base": "1.0.1",
     "niduscss-elements-form": "2.0.0",
     "niduscss-elements-link": "1.1.1",
     "niduscss-elements-typography": "1.1.2",
-    "rxjs": "5.4.2",
+    "rxjs": "5.4.3",
     "zone.js": "0.8.16"
   },
   "devDependencies": {
