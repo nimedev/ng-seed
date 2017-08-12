@@ -32,7 +32,7 @@
   "homepage": "https://github.com/nimedev/ng-seed#readme",
   "engines": {
     "npm": ">=5.3.0",
-    "node": ">=8.1.4"
+    "node": ">=8.3.0"
   },
   "dependencies": {
     "@angular/common": "4.3.3",
