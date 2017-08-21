@@ -1,5 +1,18 @@
 # Change Log
 
+## [4.3.0] - 2017-08-21
+
+### Added
+- Use postcss-niduscss config.
+
+### Modified
+- Move tslint.json to src folder.
+
+### Updated
+- Upgrade devDep: @ngtools/webpack @types/node eslint eslint-config-nimedev-base webpack webpack-kit-nimedev.
+- Upgrade to Angular v4.3.5.
+
+
 ## [4.2.2] - 2017-08-12
 
 ### Updated
