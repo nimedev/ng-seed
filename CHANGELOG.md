@@ -1,5 +1,13 @@
 # Change Log
 
+## [4.3.1] - 2017-08-25
+
+### Updated
+- Upgrade dep: zone.js.
+- Upgrade devDep: @ngtools/webpack @types/node webpack-kit-nimedev.
+- Upgrade to Angular 4.3.6.
+
+
 ## [4.3.0] - 2017-08-21
 
 ### Added
