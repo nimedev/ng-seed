@@ -1,6 +1,6 @@
 {
   "name": "ng-seed",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
     "build": "npm run install:dev && npm run build:prod",
@@ -74,22 +74,6 @@
   },
   "eslintConfig": {
     "extends": "nimedev-base"
-  },
-  "postcss": {
-    "plugins": {
-      "postcss-import": {},
-      "postcss-mixins": {},
-      "postcss-custom-media": {},
-      "postcss-custom-properties": {},
-      "postcss-nested": {},
-      "postcss-calc": {},
-      "postcss-color-function": {},
-      "autoprefixer": {
-        "browsers": [
-          "last 2 versions"
-        ]
-      }
-    }
   },
   "stylelint": {
     "extends": "stylelint-config-niduscss"

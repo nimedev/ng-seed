@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.3.2] - 2017-08-25
+
+### Fixed
+- Remove postcss config from package.json.
+
+
 ## [4.3.1] - 2017-08-25
 
 ### Updated
