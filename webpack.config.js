@@ -11,7 +11,6 @@ const opener = require('opener')
 const { DefinePlugin, HashedModuleIdsPlugin, NamedModulesPlugin } = require('webpack')
 const { ModuleConcatenationPlugin, UglifyJsPlugin } = require('webpack').optimize
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const merge = require('webpack-merge')
 const webpackKit = require('webpack-kit-nimedev')
 const threePartyLibs = require('./config/three-party-libs')
@@ -114,9 +113,6 @@ module.exports = ({ target }) => {
           chunkFilename: '[id].[chunkhash].js',
         },
         plugins: [
-          new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-          }),
           new ModuleConcatenationPlugin(),
           new HashedModuleIdsPlugin(),
           new CleanWebpackPlugin([PATHS.dist], {
@@ -131,6 +127,7 @@ module.exports = ({ target }) => {
           }),
         ],
       },
+      webpackKit.bundleAnalyzer(),
       webpackKit.copyPlugin(PATHS.assets),
       webpackKit.extractVendor({ chunks: ['app'] }),
       webpackKit.extractVendor({
