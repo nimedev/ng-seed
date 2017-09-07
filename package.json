@@ -1,17 +1,15 @@
 {
   "name": "ng-seed",
-  "version": "4.3.2",
+  "version": "4.4.0",
   "description": "A starting point for building web applications with Angular using Webpack and PostCSS",
   "scripts": {
-    "build": "npm run install:dev && npm run build:prod",
-    "build:prod": "npm run lint:ts && export NODE_ENV='production' && webpack --env.target production",
+    "build": "npm run install:dev && npm run lint:ts && NODE_ENV='production' webpack --env.target production",
     "install:dev": "npm install --production=false",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:ts",
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:js": "eslint . --ext js",
     "lint:ts": "tslint -c 'src/tslint.json' -p 'src/tsconfig.json' 'src/**/*.ts'",
-    "start": "npm run watch",
-    "watch": "export NODE_ENV='development' && webpack-dev-server --env.target development"
+    "start": "NODE_ENV='development' webpack-dev-server --env.target development"
   },
   "repository": {
     "type": "git",
@@ -52,7 +50,7 @@
     "@angular/compiler-cli": "4.4.0-RC.0",
     "@angular/platform-browser-dynamic": "4.4.0-RC.0",
     "@ngtools/webpack": "1.6.2",
-    "@types/node": "8.0.26",
+    "@types/node": "8.0.27",
     "clean-webpack-plugin": "0.1.16",
     "codelyzer": "3.1.2",
     "eslint": "4.6.1",
@@ -61,13 +59,13 @@
     "ip": "1.1.5",
     "opener": "1.4.3",
     "postcss-niduscss": "1.0.2",
-    "stylelint": "8.0.0",
+    "stylelint": "8.1.1",
     "stylelint-config-niduscss": "1.0.1",
     "tslint": "5.7.0",
     "tslint-config-nimedev-ng": "2.0.0",
     "typescript": "2.5.2",
-    "webpack": "3.5.5",
-    "webpack-kit-nimedev": "13.0.0",
+    "webpack": "3.5.6",
+    "webpack-kit-nimedev": "13.2.0",
     "webpack-merge": "4.1.0"
   },
   "eslintConfig": {

@@ -97,21 +97,18 @@ The browser reloads the app when any file change:
 ```sh
 # cd to project folder
 npm start
-# After this, a message indicate the url to run the application
 ```
 
-### Production workflow
+After run the script, a message indicate the url to run the application in a browser.
 
-- Set the environment variables with production values. `export NODE_ENV='production'`, ...
-- Run:
+### Production workflow
 
 ```sh
 # cd to project folder
 npm run build
 ```
-After run this script the `dist` folder is ready for production.
 
-:warning: Reset the environment variables to `development` values if you build in development environment environment.
+After run this script the `dist` folder is ready for production.
 
 ### Handle dependencies
 Follow this rules to update dependencies:

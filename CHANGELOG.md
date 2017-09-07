@@ -1,5 +1,14 @@
 # Change Log
 
+## [4.4.0] - 2017-09-07
+
+### Modified
+- Modify: modify the development and production scripts.
+
+### Updated
+- Upgrade devDep: @types/node stylelint webpack webpack-kit-nimedev.
+
+
 ## [4.3.3] - 2017-09-03
 
 ### Updated
