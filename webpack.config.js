@@ -136,7 +136,7 @@ module.exports = ({ target }) => {
         chunks: ['vendor'],
       }),
 
-      // Load global styles
+      // Extract global styles
       webpackKit.extractCSS({ include: PATHS.styles }),
     ])
   }

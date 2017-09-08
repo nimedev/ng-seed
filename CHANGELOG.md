@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.5.0] - 2017-09-08
+
+### Added
+- Add custom.d.ts types to avoid ts erros when import some assets with webpack.
+
+
 ## [4.4.0] - 2017-09-07
 
 ### Modified
