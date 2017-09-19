@@ -1,5 +1,11 @@
 # Change Log
 
+## [5.0.1] - 2017-09-19
+
+### Fixed
+- Fix style guide documentation.
+
+
 ## [5.0.0] - 2017-09-19
 
 ### Added

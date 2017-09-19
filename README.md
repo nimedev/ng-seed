@@ -162,19 +162,6 @@ npm run lint:ts
 ```
 
 
-**[Nimedev TypeScript style guide](https://github.com/nimedev/typescript)**.
-
-### JavaScript
-
-**[Nimedev JavaScript style guide](https://github.com/nimedev/javascript)**.
-
-### CSS
-
-**[niduscss-framework](https://github.com/nimedev/niduscss-framework)**.
-
-**[SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)**.
-
-
 ## [Contributing](CONTRIBUTING.md)
 
 
