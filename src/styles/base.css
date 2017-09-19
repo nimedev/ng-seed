@@ -1,0 +1,135 @@
+/**
+ * Prevent margin and border from affecting element width.
+ * https://goo.gl/pYtbK7
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Suppress the focus outline on elements that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+/* Default styles for html and body element.
+   ========================================================================== */
+
+@viewport {
+  width: device-width;
+}
+
+html {
+  /* Visual */
+  background: var(--App-background);
+
+  /* Misc */
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  /* Box-model */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  /* Typography */
+  font-family: var(--App-basefont);
+  color: var(--App-textcolor);
+
+  /* Visual */
+  background-color: transparent;
+}
+
+/* Images
+   ========================================================================== */
+
+img {
+  /* Box-model */
+  vertical-align: middle;
+  border-width: 0;
+  max-width: 100%;
+  height: auto;
+
+  /* Misc */
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Links
+   ========================================================================== */
+
+a {
+  /* Typography */
+  color: var(--App-primary-h1);
+
+  /* Visual */
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    /* Typography */
+    color: var(--App-primary-df);
+  }
+}
+
+/* Headings
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Box-model */
+  margin: 0 0 0.75rem;
+
+  /* Typography */
+  line-height: normal;
+  font-family: inherit;
+  font-weight: normal;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h1 {
+  /* Typography */
+  font-size: var(--App-fs-huge);
+}
+
+h2 {
+  /* Typography */
+  font-size: var(--App-fs-big);
+}
+
+h3 {
+  /* Typography */
+  font-size: var(--App-fs-medium);
+}
+
+h4 {
+  /* Typography */
+  font-size: var(--App-fs-normal);
+}
+
+h5 {
+  /* Typography */
+  font-size: var(--App-fs-small);
+}
+
+h6 {
+  /* Typography */
+  font-size: var(--App-fs-xsmall);
+}

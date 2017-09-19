@@ -8,7 +8,7 @@
   1. [Prerequisites](#prerequisites)
   1. [Install dependencies](#install-dependencies)
   1. [Workflow](#workflow)
-  1. [Style Guides](#style-guides)
+  1. [Style Guides](#style-guides-and-linters-configuration)
   1. [Contributing](#contributing)
   1. [Changelog](#changelog)
   1. [Licencse](#license)
@@ -51,7 +51,6 @@ npm install -g npm
   1. [Development workflow](#development-workflow)
   1. [Production workflow](#production-workflow)
   1. [Handle dependencies](#handle-dependencies)
-  1. [Scripts](#others-scripts)
 
 ### Environment variables
 
@@ -67,10 +66,6 @@ export NODE_ENV="development"
 export NG_SEED_HOST=localIP
 ## Port of webapplication (Use in development).
 export NG_SEED_PORT=3000
-
-# Access URLs
-## Url of API.
-export NG_SEED_API_URL="http://${ip.address()}:${8080}/api"
 ```
 
 You can copy this script in bashrc file, modify the variables and delete variables that don't need modification or are undefined.
@@ -141,7 +136,14 @@ npm outdated --long
 
 - **To Upgrade any dependencies follow `Uninstall dependencies` step and install again like `Install dependencies`.**
 
-### Others scripts
+
+## Style Guides and Linters configuration
+
+For TypeScript use [TSLint](https://palantir.github.io/tslint/) and [codelyzer](http://codelyzer.com/). Check the [tslint configuration file](tslint.json).
+
+For JavaScript use [JavaScript Standard Style](https://standardjs.com/).
+
+For CSS use [stylelint](https://stylelint.io/) as linter, [PostCSS](http://postcss.org/) to transform some CSS and [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md). Check the [stylelint configuration file](stylelint.config.js) and [postcss configuration file](postcss.config.js).
 
 To run linters in console type:
 
@@ -152,17 +154,13 @@ npm run lint
 # Run only stylelint
 npm run lint:css
 
-# Run only eslint for js files
+# Run only standard for js files
 npm run lint:js
 
 # Run only tslint for ts files
 npm run lint:ts
 ```
 
-
-## Style Guides
-
-### TypeScript
 
 **[Nimedev TypeScript style guide](https://github.com/nimedev/typescript)**.
 

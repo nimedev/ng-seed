@@ -1,0 +1,44 @@
+{
+// Files
+
+  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+  "files.associations": {
+    "*.css": "postcss"
+  },
+
+// Typescript
+
+  // Enable/disable JavaScript validation.
+  "javascript.validate.enable": false,
+
+  // Enable/disable default JavaScript formatter.
+  "javascript.format.enable": false,
+
+// TSLint
+
+  // Control whether tslint is enabled for TypeScript files or not.
+  "tslint.enable": true,
+
+// PostCSS Configuration
+
+  // Validation for PostCSS files
+  "postcss.validate": false,
+
+// vscode-icons configuration
+
+  // If set to true, the extension will match some of the common Angular patterns.
+  "vsicons.presets.angular": true,
+
+// stylelint configuration options
+
+  // Control whether stylelint is enabled for CSS/SCSS/Less files or not.
+  "stylelint.enable": true,
+
+// JavaScript Standard Style
+
+  // Controls whether JavaScript Standard Style is enabled for JavaScript files or not.
+  "standard.enable": true,
+
+  // Turns auto fix on save on or off.
+  "standard.autoFixOnSave": true
+}

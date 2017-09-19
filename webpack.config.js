@@ -7,17 +7,19 @@ const path = require('path')
 
 const { AotPlugin } = require('@ngtools/webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const opener = require('opener')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const { DefinePlugin, HashedModuleIdsPlugin, NamedModulesPlugin } = require('webpack')
-const { ModuleConcatenationPlugin, UglifyJsPlugin } = require('webpack').optimize
+const { CommonsChunkPlugin, ModuleConcatenationPlugin, UglifyJsPlugin } = require('webpack').optimize
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const merge = require('webpack-merge')
-const webpackKit = require('webpack-kit-nimedev')
+
+const webpackBlocks = require('./config/webpack-blocks')
 const threePartyLibs = require('./config/three-party-libs')
-const webpackEnv = require('./config/webpack-environment')
+const webpackEnvironment = require('./config/webpack-environment')
 
 const entryPoints = ['polyfills', 'three-party-libs', 'vendor', 'app']
-const threePartyRegExp = new RegExp(threePartyLibs.join('|'))
 
 const PATHS = {
   src: path.join(__dirname, 'src'),
@@ -25,36 +27,50 @@ const PATHS = {
   images: path.join(__dirname, 'src/assets/images'),
   icons: path.join(__dirname, 'src/assets/icons'),
   fonts: path.join(__dirname, 'src/assets/fonts'),
-  styles: path.join(__dirname, 'src/styles/index.css'),
+  globalStyles: path.join(__dirname, 'src/styles/index.css'),
   componentStyles: path.join(__dirname, 'src/app'),
   assets: [
     {
-      from: path.join(__dirname, 'src/favicon.ico'),
+      from: path.join(__dirname, 'src/favicon.ico')
     }, {
-      from: path.join(__dirname, 'src/robots.txt'),
-    },
-  ],
+      from: path.join(__dirname, 'src/robots.txt')
+    }
+  ]
 }
 
+// Settings for all environments
 const common = merge([
-  // Common settings
   {
     entry: {
-      app: `${PATHS.src}/main.ts`,
-      polyfills: `${PATHS.src}/polyfills.ts`,
+      app: path.join(PATHS.src, 'main.ts'),
+      polyfills: path.join(PATHS.src, 'polyfills.ts')
     },
     output: {
       path: PATHS.dist,
       filename: '[name].js',
-      chunkFilename: '[id].chunk.js',
+      chunkFilename: '[id].chunk.js'
     },
     resolve: {
-      extensions: ['.ts', '.js', '.json', '.css'],
+      extensions: ['.ts', '.js', '.json', '.css']
     },
 
     // TypeScript loaders.
     module: {
       rules: [
+        {
+          test: /\.html$/,
+          include: PATHS.src,
+          use: 'html-loader'
+        },
+        {
+          test: /\.(jpg|png|svg)$/,
+          include: PATHS.images,
+          loader: 'url-loader',
+          options: {
+            name: './assets/images/[name].[hash].[ext]',
+            limit: 25000
+          }
+        },
         // {
         //   test: /\.ts$/,
         //   include: PATHS.src,
@@ -66,40 +82,35 @@ const common = merge([
           test: /\.ts$/,
           include: PATHS.src,
 
-          use: '@ngtools/webpack',
-        },
-      ],
+          use: '@ngtools/webpack'
+        }
+      ]
     },
 
     plugins: [
       new ProgressPlugin(),
       new DefinePlugin(Object.assign(
         {},
-        webpackEnv.defineEnvironment
+        webpackEnvironment
       )),
+      new StyleLintPlugin({ files: 'src/**/*.css' }),
       new AotPlugin({
-        entryModule: `${PATHS.src}/app/app.module#AppModule`,
-        tsConfigPath: `${PATHS.src}/tsconfig.aot.json`,
-        skipCodeGeneration: process.env.NODE_ENV === 'development',
-      }),
-    ],
-  },
-  webpackKit.loadHtml({ include: PATHS.src }),
-  webpackKit.loadImages({ include: PATHS.images }),
-  webpackKit.loadSvgSprite({ include: PATHS.icons }),
-  webpackKit.loadFonts({ include: PATHS.fonts }),
+        entryModule: path.join(PATHS.src, '/app/app.module#AppModule'),
+        tsConfigPath: path.join(PATHS.src, '/tsconfig.aot.json'),
 
-  // CSS
-  webpackKit.lintCSS({ files: 'src/**/*.css' }),
+        // Use JIT in development and AOT in production
+        skipCodeGeneration: process.env.NODE_ENV === 'development'
+      })
+    ]
+  },
+  webpackBlocks.loadSvgSprite(PATHS.icons),
+  webpackBlocks.loadFonts(PATHS.fonts),
 
   // Load css of components
-  webpackKit.loadCSS({
-    include: PATHS.componentStyles,
-    useExportsLoader: true,
-  }),
+  webpackBlocks.loadCSS(PATHS.componentStyles),
 
   // Plugins
-  webpackKit.htmlPlugin({ template: './src/index.html' }, entryPoints),
+  webpackBlocks.htmlPlugin({ template: './src/index.html' }, entryPoints)
 ])
 
 module.exports = ({ target }) => {
@@ -110,39 +121,42 @@ module.exports = ({ target }) => {
       {
         output: {
           filename: '[name].[chunkhash].js',
-          chunkFilename: '[id].[chunkhash].js',
+          chunkFilename: '[id].[chunkhash].js'
         },
         plugins: [
+          new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
+          }),
           new ModuleConcatenationPlugin(),
           new HashedModuleIdsPlugin(),
           new CleanWebpackPlugin([PATHS.dist], {
             // Without `root` CleanWebpackPlugin won't point to our
             // project and will fail to work.
-            root: process.cwd(),
+            root: process.cwd()
           }),
           new UglifyJsPlugin({
             compress: {
-              warnings: false,
-            },
+              warnings: false
+            }
           }),
-        ],
+          new CopyWebpackPlugin(PATHS.assets),
+          new CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: module => /node_modules/.test(module.context),
+            chunks: ['app']
+          }),
+          new CommonsChunkPlugin({
+            name: 'three-party-libs',
+            minChunks: module => threePartyLibs.test(module.resource),
+            chunks: ['vendor']
+          })
+        ]
       },
-      webpackKit.bundleAnalyzer(),
-      webpackKit.copyPlugin(PATHS.assets),
-      webpackKit.extractVendor({ chunks: ['app'] }),
-      webpackKit.extractVendor({
-        name: 'three-party-libs',
-        minChunks: module => threePartyRegExp.test(module.resource),
-        chunks: ['vendor'],
-      }),
 
       // Extract global styles
-      webpackKit.extractCSS({ include: PATHS.styles }),
+      webpackBlocks.extractCSS(PATHS.globalStyles)
     ])
   }
-
-  // Run opener
-  opener(`http://${webpackEnv.host}:${webpackEnv.port}`)
 
   // Return development configurations
   return merge([
@@ -150,15 +164,12 @@ module.exports = ({ target }) => {
     {
       devtool: '#inline-source-map',
       plugins: [
-        new NamedModulesPlugin(),
-      ],
+        new NamedModulesPlugin()
+      ]
     },
-    webpackKit.devServer({
-      host: webpackEnv.host,
-      port: webpackEnv.port,
-    }),
+    webpackBlocks.devServer(),
 
     // Load global styles
-    webpackKit.loadCSS({ include: PATHS.styles }),
+    webpackBlocks.loadCSS(PATHS.globalStyles, false)
   ])
 }

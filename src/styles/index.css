@@ -2,7 +2,7 @@
  * Include here all modules (.css files) that need the app
  */
 
-/* Libraries
+/* Custom properties, media queries, mixins etc
    ========================================================================== */
 
 @import "./settings";
@@ -10,14 +10,5 @@
 /* Base styles
    ========================================================================== */
 
-@import "niduscss-base";
-
-/* Niduscss elements
-   ========================================================================== */
-
-@import "niduscss-elements-form";
-@import "niduscss-elements-link";
-@import "niduscss-elements-typography";
-
-/* Global styles
-   ========================================================================== */
+@import "normalize.css";
+@import "./base";

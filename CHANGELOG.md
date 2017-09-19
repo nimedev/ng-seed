@@ -1,5 +1,24 @@
 # Change Log
 
+## [5.0.0] - 2017-09-19
+
+### Added
+- Added: use vscode workspace settings.
+
+### Modified
+- Modify: remove niduscss global styles and use normalize.css.
+- Modify: improve webpack configuration and remove webpack-kit-nimedev.
+- Modify: update style guide and linters documentation.
+- Modify: improve postcss configuration and remove postcss-niduscss.
+- Modify: improve stylelint configuration and remove stylelint-config-niduscss.
+- Modify: improve tslint configuration and remove tslint-config-nimedev-ng.
+- Modify: use standard.js instead eslint-config-nimedev-base.
+
+### Updated
+- Upgrade devDep: @ngtools/webpack @types/node.
+- Downgrade: to Angular 4.3.6.
+
+
 ## [4.5.0] - 2017-09-08
 
 ### Added

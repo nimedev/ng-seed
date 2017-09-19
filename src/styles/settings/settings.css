@@ -51,13 +51,4 @@
   --App-fs-huge: 2.125rem;
   --App-fs-extreme: 2.8125rem;
   --App-fs-xextreme: 3.5rem;
-
-  /* Form elements */
-  --Form-textcolor: var(--App-textcolor);
-  --Form-basefont: var(--App-basefont);
-  --Form-fs-xsmall: var(--App-fs-xsmall);
-  --Form-fs-small: var(--App-fs-small);
-  --Form-fs-normal: var(--App-fs-normal);
-  --Form-border-clr: var(--App-primary-df);
-  --Form-warn-clr: var(--App-warn-df);
 }
