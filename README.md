@@ -1,6 +1,6 @@
 # NG Seed
 
-> A starting point for building web applications with Angular using Webpack and PostCSS.
+> A starting point for building web applications with Angular using ejected angular-cli application and PostCSS.
 
 
 ## Table of Contents
@@ -27,7 +27,7 @@
 ```sh
 node --version
 ```
-The version should be at or above 6.10
+The version should be at or above 8.6
 
 If you don't have Node.js installed go to [nodejs](https://nodejs.org/en/download/) and install the appropiate version or use [nvm](http://www.sergiolepore.net/2014/06/30/nvm-instalando-y-usando-node-version-manager/) (Recommended).
 
@@ -47,10 +47,21 @@ npm install -g npm
 
 ## Workflow
 
+  1. [Angular CLI](#angular-cli)
   1. [Environment variables](#environment-variables)
   1. [Development workflow](#development-workflow)
   1. [Production workflow](#production-workflow)
   1. [Handle dependencies](#handle-dependencies)
+  1. [Testing](#testing)
+
+### Angular CLI
+
+This scaffolding use use and [ejected](https://github.com/angular/angular-cli/wiki/eject) app of [angular-cli](https://github.com/angular/angular-cli) and some scripts have been rewritten:
+
+- To use `ng serve` go to [development workflow](#development-workflow)
+- To use `ng build` go to [production workflow](#production-workflow)
+- To use `ng test` and `ng e2e` go to [testing](#testing)
+- To use `ng lint` go to [style guides](#style-guides-and-linters-configuration)
 
 ### Environment variables
 
@@ -65,7 +76,7 @@ export NODE_ENV="development"
 ## Host of webapplication.
 export NG_SEED_HOST=localIP
 ## Port of webapplication (Use in development).
-export NG_SEED_PORT=3000
+export NG_SEED_PORT=4200
 ```
 
 You can copy this script in bashrc file, modify the variables and delete variables that don't need modification or are undefined.
@@ -135,6 +146,28 @@ npm outdated --long
 ```
 
 - **To Upgrade any dependencies follow `Uninstall dependencies` step and install again like `Install dependencies`.**
+
+### Testing
+
+#### Running unit tests
+
+```sh
+npm test
+```
+
+#### Running end-to-end tests
+
+First start the development server
+
+```sh
+npm start
+```
+
+Then run the end to end tests in another terminal
+
+```sh
+npm run e2e
+```
 
 
 ## Style Guides and Linters configuration

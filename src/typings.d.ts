@@ -1,3 +1,9 @@
+/* SystemJS module definition */
+declare var module: NodeModule
+interface NodeModule {
+  id: string
+}
+
 declare module '*.json' {
   const content: any
   export default content
@@ -19,6 +25,11 @@ declare module '*.jpg' {
 }
 
 declare module '*.jpeg' {
+  const content: any
+  export default content
+}
+
+declare module '*.mp3' {
   const content: any
   export default content
 }

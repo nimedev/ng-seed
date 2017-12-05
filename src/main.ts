@@ -1,22 +1,12 @@
-/**
- * Main module used to bootstrap de application
- */
-
-// Global styles
-import './styles'
-
 import { enableProdMode } from '@angular/core'
-import { platformBrowser } from '@angular/platform-browser'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
-// App module
 import { AppModule } from './app/app.module'
-import { ENV } from './app.config'
+import { environment } from './environments/environment'
 
-// Enable production mode
-if (ENV === 'production') {
+if (environment.production) {
   enableProdMode()
-  platformBrowser().bootstrapModule(AppModule)
-} else {
-  platformBrowserDynamic().bootstrapModule(AppModule)
 }
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err))

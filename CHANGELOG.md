@@ -1,5 +1,11 @@
 # Change Log
 
+## [6.0.0] - 2017-12-05
+
+### Modified
+- [Breaking Change] Integrate with angular-cli.
+
+
 ## [5.0.1] - 2017-09-19
 
 ### Fixed

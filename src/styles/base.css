@@ -51,6 +51,11 @@ body {
 
   /* Visual */
   background-color: transparent;
+
+  /* Prevent font-family asigment of normalize.css */
+  * {
+    font-family: inherit;
+  }
 }
 
 /* Images
