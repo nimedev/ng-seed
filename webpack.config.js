@@ -9,6 +9,7 @@ const setupWebpackConfigProd = require('./config/webpack.config.prod')
 const setupWebpackConfigTest = require('./config/webpack.config.test')
 
 const PATHS = {
+  root: __dirname,
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
   audio: path.join(__dirname, 'src/assets/audio'),

@@ -1,0 +1,11 @@
+/**
+ * Remove outline of element
+ */
+
+@define-mixin removeOutline {
+  &,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

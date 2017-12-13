@@ -1,5 +1,7 @@
 'use strict'
 
+const path = require('path')
+
 const { SuppressExtractedTextChunksWebpackPlugin } = require('@angular/cli/plugins/webpack')
 const { PurifyPlugin } = require('@angular-devkit/build-optimizer')
 const { AngularCompilerPlugin } = require('@ngtools/webpack')
@@ -7,7 +9,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const { LicenseWebpackPlugin } = require('license-webpack-plugin')
 const { HashedModuleIdsPlugin } = require('webpack')
 const { CommonsChunkPlugin, ModuleConcatenationPlugin, UglifyJsPlugin } = require('webpack').optimize
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const webpackKit = require('webpack-kit-nimedev')
 const merge = require('webpack-merge')
 
@@ -86,7 +87,7 @@ module.exports = (paths, { entryPoints }) => merge([
           'license.txt'
         ],
         perChunkOutput: false,
-        outputTemplate: './node_modules/license-webpack-plugin/output.template.ejs',
+        outputTemplate: path.join(paths.root, 'node_modules/license-webpack-plugin/output.template.ejs'),
         outputFilename: '3rdpartylicenses.txt',
         suppressErrors: true,
         includePackagesWithoutLicense: false,

@@ -155,7 +155,7 @@
       true,
       "attribute",
       [
-        "nmd"
+        "app"
       ],
       "camelCase"
     ],
@@ -163,7 +163,7 @@
       true,
       "element",
       [
-        "nmd"
+        "app"
       ],
       "kebab-case"
     ]

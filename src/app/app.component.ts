@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'nmd-app',
+  selector: 'app-root',
   styleUrls: ['./app.component.css'],
   template: `
     <h1>Hello {{ name }}</h1>

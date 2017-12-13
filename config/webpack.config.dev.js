@@ -1,6 +1,6 @@
 'use strict'
 
-const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack')
+const { NamedLazyChunksWebpackPlugin } = require('@angular/cli/plugins/webpack')
 const { AngularCompilerPlugin } = require('@ngtools/webpack')
 const { NamedModulesPlugin, SourceMapDevToolPlugin } = require('webpack')
 const webpackKit = require('webpack-kit-nimedev')
@@ -30,7 +30,6 @@ module.exports = (paths, { entryPoints, test = false }) => merge([
     devtool: '#inline-source-map',
     plugins: [
       new NamedLazyChunksWebpackPlugin(),
-      new BaseHrefWebpackPlugin({}),
       new NamedModulesPlugin({}),
       new SourceMapDevToolPlugin({
         filename: '[file].map[query]',

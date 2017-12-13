@@ -1,5 +1,21 @@
 # Change Log
 
+## [6.1.0] - 2017-12-13
+
+### Added
+- Add font-family hack.
+- Add mixins folder to global styles settins.
+
+### Fixed
+- Fix the name in package.json and angular-cli.
+
+### Modified
+- Update webpack configuration.
+
+### Updated
+- Update to Angular 5.1.
+
+
 ## [6.0.0] - 2017-12-05
 
 ### Modified

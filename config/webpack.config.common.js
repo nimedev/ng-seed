@@ -6,6 +6,7 @@
 
 const path = require('path')
 
+const { BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack')
 const rxPaths = require('rxjs/_esm5/path-mapping')
 const { NoEmitOnErrorsPlugin, DefinePlugin } = require('webpack')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
@@ -73,7 +74,8 @@ module.exports = (paths) => merge([
       new DefinePlugin(Object.assign(
         {},
         webpackEnvironment
-      ))
+      )),
+      new BaseHrefWebpackPlugin({})
     ],
     node: {
       fs: 'empty',
@@ -100,6 +102,9 @@ module.exports = (paths) => merge([
 
   // Add plugins
   webpackKit.copyPlugin(paths.copy),
-  webpackKit.circularDependency(),
+  webpackKit.circularDependency({
+    onDetected: false,
+    cwd: paths.root
+  }),
   webpackKit.lintCSS()
 ])

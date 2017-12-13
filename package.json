@@ -25,7 +25,7 @@
     "postcss"
   ],
   "author": "Nicolás Mejía Correa <nicolasmejiaco@gmail.com> (https://twitter.com/nimedev)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nimedev/ng-seed/issues"
   },
@@ -35,13 +35,13 @@
     "node": ">=8.6.0"
   },
   "devDependencies": {
-    "@angular/cli": "^1.5.5",
-    "@angular/compiler-cli": "^5.0.5",
-    "@angular/language-service": "^5.0.5",
+    "@angular/cli": "^1.6.0",
+    "@angular/compiler-cli": "^5.1.0",
+    "@angular/language-service": "^5.1.0",
     "@types/jasmine": "^2.8.2",
     "@types/jasminewd2": "^2.0.3",
-    "@types/node": "^8.0.55",
-    "codelyzer": "^4.0.1",
+    "@types/node": "^8.0.58",
+    "codelyzer": "^4.0.2",
     "ip": "^1.1.5",
     "istanbul-instrumenter-loader": "^3.0.0",
     "jasmine-core": "^2.8.0",
@@ -57,27 +57,28 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
     "postcss-mixins": "^6.2.0",
-    "postcss-nested": "^2.1.2",
-    "protractor": "^5.2.0",
+    "postcss-nested": "^3.0.0",
+    "protractor": "^5.2.2",
+    "redux-logger": "^3.0.6",
     "source-map-loader": "^0.2.3",
     "standard": "^10.0.3",
-    "ts-node": "^3.3.0",
+    "ts-node": "^4.0.1",
     "tslint": "^5.8.0",
-    "typescript": "2.4.2",
-    "webpack-kit-nimedev": "^14.1.0"
+    "typescript": "2.5.3",
+    "webpack-kit-nimedev": "^14.1.1"
   },
   "dependencies": {
-    "@angular/animations": "^5.0.5",
-    "@angular/common": "^5.0.5",
-    "@angular/compiler": "^5.0.5",
-    "@angular/core": "^5.0.5",
-    "@angular/forms": "^5.0.5",
-    "@angular/platform-browser": "^5.0.5",
-    "@angular/platform-browser-dynamic": "^5.0.5",
-    "@angular/router": "^5.0.5",
-    "core-js": "^2.5.1",
+    "@angular/animations": "^5.1.0",
+    "@angular/common": "^5.1.0",
+    "@angular/compiler": "^5.1.0",
+    "@angular/core": "^5.1.0",
+    "@angular/forms": "^5.1.0",
+    "@angular/platform-browser": "^5.1.0",
+    "@angular/platform-browser-dynamic": "^5.1.0",
+    "@angular/router": "^5.1.0",
+    "core-js": "^2.5.3",
     "normalize.css": "^7.0.0",
-    "rxjs": "5.5.2",
+    "rxjs": "^5.5.5",
     "zone.js": "^0.8.18"
   }
 }
